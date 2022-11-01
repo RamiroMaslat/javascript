@@ -1,4 +1,3 @@
-debugger
 alert('Bienvenido, haz lick en aceptar para realizar una cotizacion rápida de tu vehículo');
 
 const usuario = () => {
