@@ -79,39 +79,50 @@ const seguirCotizando = () => {
       alert('Coloca una opción correcta por favor!'); 
       pregunta = parseInt(prompt('Desea seguir cotizando? 1.Si 2.No'));      
     }
-  }
-  
+  }  
 }
 
 
 
-const cotizador = () => { 
+const cotizador = () => {
 
+  const valores = [900, 700, 1.5, 1.3, 2.3, 2, 4, 3.7]
+  if(Vehiculos.detalles === 1){
+    for(i = 0; i < valores.length; i++ ){
+      const valorFinal = valores[i] * 0.10
+      valores[i] = valores[i] - valorFinal
+         
+    }
+  }else{  
+      valores[i]
+    }
+  
+  
   for(Vehiculos.anio <= 1995; Vehiculos.anio <= 2022; Vehiculos.anio++){
-    
+
     if(Vehiculos.anio <= 1995 && Vehiculos.kilometros <= 100000){
-      alert('Tu auto posee un valor aproximado de 900 mil Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[0]} mil pesos Argentinos`);
       break;      
     }else if(Vehiculos.anio <= 1995 && Vehiculos.kilometros >=100000) {
-      alert('Tu auto posee un valor por debajo de los 700 mil pesos Argentinos');
+      alert(`Tu auto posee un valor por debajo de los ${valores[1]} mil pesos Argentinos`);
       break         
     }else if(Vehiculos.anio >= 1995 && Vehiculos.anio <= 2005 && Vehiculos.kilometros <= 100000){
-      alert('Tu auto posee un valor aproximado de 1.3 millones de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[2]} millones de pesos Argentinos`);
       break
     }else if(Vehiculos.anio >= 1995 && Vehiculos.anio <= 2005 && Vehiculos.kilometros >= 100000){
-      alert('Tu auto posee un valor aproximado de 1 millon de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[3]} millones de pesos Argentinos`);
       break
     }else if(Vehiculos.anio >= 2005 && Vehiculos.anio <= 2010 && Vehiculos.kilometros <= 100000){
-      alert('Tu auto posee un valor aproximado de 2.3 millones de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[4]} millones de pesos Argentinos`);
       break
     }else if(Vehiculos.anio >= 2005 && Vehiculos.anio <= 2010 && Vehiculos.kilometros >= 100000){
-      alert('Tu auto posee un valor aproximado de 2 millones de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[5]} millones de pesos Argentinos`);
       break
     }else if(Vehiculos.anio >= 2010 && Vehiculos.anio <= 2022 && Vehiculos.kilometros <= 100000){
-      alert('Tu auto posee un valor aproximado de 4 millones de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[6]} millones de pesos Argentinos`);
       break
     }else if(Vehiculos.anio >= 2010 && Vehiculos.anio <= 2022 && Vehiculos.kilometros >= 100000){
-      alert('Tu auto posee un valor aproximado de 3.7 millones de pesos Argentinos');
+      alert(`Tu auto posee un valor aproximado de ${valores[7]} millones de pesos Argentinos`);
       break
     }else{
       alert('Disculpas, no podemos cotizar tu vehículo, por favor contactate al 0800 000 0000 muchas Gracias!');
