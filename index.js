@@ -5,13 +5,13 @@ const usuario = () => {
   let nombre = prompt('Cual es tu nombre?');
   let apellido = prompt('Indica tu apellido');
 
-  while(validacion === true){
+  while (validacion === true) {
 
-    if(!isNaN(nombre)){
+    if (!isNaN(nombre)) {
       alert('Error, ingresa un nombre válido');
       nombre = prompt('Cual es tu nombre?');
 
-    }else if(!isNaN(apellido)){
+    } else if (!isNaN(apellido)) {
       alert('Error, ingresa un apellido válido');
       apellido = prompt('Cual es tu apellido?');
 
@@ -25,110 +25,108 @@ const usuario = () => {
 
 let nameUser = usuario();
 
-
-class Vehiculos {
-  constructor(marca, modelo, anio, kilometros, detalles){
-    this.marca = marca
-    this.modelo = modelo
-    this.anio = anio
-    this.kilometros = kilometros
-    this.detalles = detalles
-  }
-}
+let marca = prompt('Cuál es la marca de tu vehículo?');
+let modelo = prompt('Cuál es el modelo de tu vehículo?');
+let anio = parseInt(prompt('Cuál es el año de tu vehículo?'));
+let kilometros = parseInt(prompt('Cuantos kilometros posee tu vehículo?'));
+let detalles = parseInt(prompt('Tu auto tiene algun detalle? 1.Si 2.No'));
+let datos = true
+alert('Los datos ingresados son: ' + '\n' + 'Marca: ' + marca + '\n' + 'Modelo: ' + modelo + '\n' + 'Año: ' + anio + '\n' + 'Kiloemtros: ' + kilometros + '\n' + 'Detalles: ' + detalles);
 
 const infoAuto = () => {
-  Vehiculos.marca = prompt('Cuál es la marca de tu vehículo?');
-  Vehiculos.modelo = prompt('Cuál es el modelo de tu vehículo?');
-  Vehiculos.anio = parseInt(prompt('Cuál es el año de tu vehículo?'));
-  Vehiculos.kilometros = parseInt(prompt('Cuantos kilometros posee tu vehículo?'));
-  Vehiculos.detalles = parseInt(prompt('Tu auto tiene algun detalle? 1.Si 2.No'));
-  let datos = true
-  alert('Los datos ingresados son: ' + '\n' + 'Marca: ' + Vehiculos.marca  + '\n' + 'Modelo: ' + Vehiculos.modelo + '\n' + 'Año: ' + Vehiculos.anio + '\n' + 'Kiloemtros: ' + Vehiculos.kilometros + '\n' + 'Detalles: ' + Vehiculos.detalles);
-
-  while(datos === true){
-    if(isNaN(Vehiculos.anio)){
+  while (datos === true) {
+    if (isNaN(anio)) {
       alert('El dato ingresado tiene que expresarse en números, vuelve a intentarlo porfavor.');
-      Vehiculos.anio = parseInt(prompt('Cuál es el año de tu vehículo?'));
-    }else if(isNaN(Vehiculos.kilometros)){
+      anio = parseInt(prompt('Cuál es el año de tu vehículo?'));
+    } else if (isNaN(kilometros)) {
       alert('El dato ingresado tiene que expresarse en números, vuelve a intentarlo porfavor.');
-        Vehiculos.kilometros = parseInt(prompt('Cuantos kilometros posee tu vehículo?'));
-    }else if(Vehiculos.detalles === 1){
+      kilometros = parseInt(prompt('Cuantos kilometros posee tu vehículo?'));
+    } else if (detalles === 1) {
       let danos = prompt('indica que daños o detalles posee el vehiculo');
       datos = false
-    }else if(Vehiculos.detalles === 2){
+    } else if (detalles === 2) {
       datos = false;
+    } else {
+      alert('Coloca una opción válida, gracias!')
+      detalles = parseInt(prompt('Tu auto tiene algun detalle? 1.Si 2.No'));
     }
   }
 }
 
-infoAuto();
 
-const seguirCotizando = () => { 
+
+const seguirCotizando = () => {
   let pregunta = parseInt(prompt('Desea seguir cotizando? 1.Si 2.No'));
-  let pregunta1 = true    
-  while(pregunta1 === true){
-    if(pregunta === 1){
+  let pregunta1 = true
+  while (pregunta1 === true) {
+    if (pregunta === 1) {
+      marca = prompt('Cuál es la marca de tu vehículo?');
+      modelo = prompt('Cuál es el modelo de tu vehículo?');
+      anio = parseInt(prompt('Cuál es el año de tu vehículo?'));
+      kilometros = parseInt(prompt('Cuantos kilometros posee tu vehículo?'));
+      detalles = parseInt(prompt('Tu auto tiene algun detalle? 1.Si 2.No'));
+      datos = true
       infoAuto();
       cotizador();
       seguirCotizando();
       break
-    }else if(pregunta === 2){      
+    } else if (pregunta === 2) {
       pregunta1 = false
-    }else{
-      alert('Coloca una opción correcta por favor!'); 
-      pregunta = parseInt(prompt('Desea seguir cotizando? 1.Si 2.No'));      
+    } else {
+      alert('Coloca una opción correcta por favor!');
+      pregunta = parseInt(prompt('Desea seguir cotizando? 1.Si 2.No'));
     }
-  }  
+  }
 }
 
 
 
 const cotizador = () => {
 
+
   const valores = [900, 700, 1.5, 1.3, 2.3, 2, 4, 3.7]
-  if(Vehiculos.detalles === 1){
-    for(i = 0; i < valores.length; i++ ){
+  if (detalles === 1) {
+    for (i = 0; i < valores.length; i++) {
       const valorFinal = valores[i] * 0.10
       valores[i] = valores[i] - valorFinal
-         
     }
-  }else{  
-      valores[i]
-    }
-  
-  
-  for(Vehiculos.anio <= 1995; Vehiculos.anio <= 2022; Vehiculos.anio++){
+  }
 
-    if(Vehiculos.anio <= 1995 && Vehiculos.kilometros <= 100000){
+
+  for (anio <= 1995; anio <= 2022; anio++) {
+
+    if (anio <= 1995 && kilometros <= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[0]} mil pesos Argentinos`);
-      break;      
-    }else if(Vehiculos.anio <= 1995 && Vehiculos.kilometros >=100000) {
+      break;
+    } else if (anio <= 1995 && kilometros >= 100000) {
       alert(`Tu auto posee un valor por debajo de los ${valores[1]} mil pesos Argentinos`);
-      break         
-    }else if(Vehiculos.anio >= 1995 && Vehiculos.anio <= 2005 && Vehiculos.kilometros <= 100000){
+      break
+    } else if (anio >= 1995 && anio <= 2005 && kilometros <= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[2]} millones de pesos Argentinos`);
       break
-    }else if(Vehiculos.anio >= 1995 && Vehiculos.anio <= 2005 && Vehiculos.kilometros >= 100000){
+    } else if (anio >= 1995 && anio <= 2005 && kilometros >= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[3]} millones de pesos Argentinos`);
       break
-    }else if(Vehiculos.anio >= 2005 && Vehiculos.anio <= 2010 && Vehiculos.kilometros <= 100000){
+    } else if (anio >= 2005 && anio <= 2010 && kilometros <= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[4]} millones de pesos Argentinos`);
       break
-    }else if(Vehiculos.anio >= 2005 && Vehiculos.anio <= 2010 && Vehiculos.kilometros >= 100000){
+    } else if (anio >= 2005 && anio <= 2010 && kilometros >= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[5]} millones de pesos Argentinos`);
       break
-    }else if(Vehiculos.anio >= 2010 && Vehiculos.anio <= 2022 && Vehiculos.kilometros <= 100000){
+    } else if (anio >= 2010 && anio <= 2022 && kilometros <= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[6]} millones de pesos Argentinos`);
       break
-    }else if(Vehiculos.anio >= 2010 && Vehiculos.anio <= 2022 && Vehiculos.kilometros >= 100000){
+    } else if (anio >= 2010 && anio <= 2022 && kilometros >= 100000) {
       alert(`Tu auto posee un valor aproximado de ${valores[7]} millones de pesos Argentinos`);
       break
-    }else{
+    } else {
       alert('Disculpas, no podemos cotizar tu vehículo, por favor contactate al 0800 000 0000 muchas Gracias!');
       break
     }
   }
 }
+
+infoAuto();
 cotizador();
 seguirCotizando();
 alert(`${nameUser} gracias por usar nuestro cotizador rápido, vuelve pronto!`);

@@ -103,7 +103,25 @@
   //   }else {
   //     console.log(i);
   //   }
-  // }
+  //
 
 
+
+
+let size = 8
+
+let board = ""
+
+for(let columna = 0; columna < size; columna++){
+  for(let fila = 0; fila < size; fila++){
+    if((fila + columna) % 2 === 0){
+      board = board += "#"
+    }else{
+      board = board +=" "
+    }
+
+  }
+  board += '\n'
+}
+console.log(board)
 
