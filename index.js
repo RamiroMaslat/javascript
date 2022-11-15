@@ -145,7 +145,7 @@ const agregarCarrito = () => {
     }
 
 }
-debugger
+
 
 
 
@@ -254,7 +254,6 @@ function pagoUsuario() {
 
 agregarCarrito();
 mostrarCarrito();
-debugger
 pagoUsuario();
 alert('Gracias por utilizar nuestra web, vuelva pronto!')
 
