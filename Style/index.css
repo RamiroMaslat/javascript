@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&family=Gloria+Hallelujah&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    margin: 0px;
+}
+
+.body {
+    box-sizing: border-box;
+    margin: 0px;
+
+}
+
+.containerBody {
+    margin: 200px;
+    margin-top: 0px;
+
+
+}
+
+.header {
+    display: flex;
+    background-color: #062452;
+    height: 100%;
+    border-radius: 30px;
+    align-content: stretch;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.header h1 {
+    
+    font-weight: 100;
+    margin: 0px;
+    color: #f0ffff;
+    height: auto;
+    width: auto;
+    margin: 0px;
+    font-size: 3rem;
+    text-decoration: underline 0.09em;
+}
+.header h2{
+    color:azure;
+    font-size: 0.87rem;
+    font-family: 'Gloria Hallelujah', serif;
+    margin: 0px;
+    
+    
+}
+
+.header section {
+    display: flex;
+    flex-direction: column;
+    color: azure;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    height: 40%;
+    width: 40%;
+    align-items: flex-end;
+    gap: 0.8em;
+}
+
+.aaLogo {
+    width: 100px;
+    height: 100px;
+    background-color: azure;
+    border-radius: 20px;
+    display: block;
+
+}
+
+.botonCarritoLogo {
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    background-color: #062452;
+    border: none;
+   
+
+}
+
+.carritoLogo {
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.totalCarritoLogo {
+    display: flex;
+    align-content: center;
+    align-items: baseline;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+
+#vaciarCarrito:hover{
+    background-color: red;   
+    transition: all 0.5s;
+    margin: 7px;
+
+}
+.carrito {
+    margin: 0px;
+    width: 70px;
+    height: 100%;
+    display: block;
+}
+
+#productSection {
+    margin-top: 1rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 4rem;
+    text-align: center;
+
+}
+.card-body{
+    gap: 19px;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card-title {
+    color: rgb(6, 36, 82);
+}
+
+.card-text {
+    color: rgb(6, 36, 82);
+}
+
+.btn {
+    background-color: rgb(6, 36, 82);
+    border: 0px;
+}
+.close{
+    background-color: red;
+    color: black;
+    font-weight: 600;
+}
+.PieDePagina {
+    background-color: rgb(6, 36, 82);
+    height: 150px;
+    position: absolute;
+    width: 100%;
+    margin-right: 0px;
+    color: azure;
+    text-align: center;
+}
+
+.PieDePagina .PieDePagina__LogoRedSocial {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+}
+.PieDePagina .PieDePagina__LogoRedSocial:hover {
+    transition: all 0.2s;
+    width: 60px;
+    height: 60px;
+    border: 2px solid orangered;
+    border-radius: 30px;
+
+  }
