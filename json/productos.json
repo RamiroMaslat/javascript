@@ -1,0 +1,75 @@
+[
+    {   
+        "id": 0,
+        "marca": "Lexus",
+        "modelo": "LFA",
+        "escala": "1:32",
+        "precio": 80,
+        "stock": 12,
+        "img":"LexusLfa.jpg"
+    },
+    {   
+        "id": 1,
+        "marca": "Nissan",
+        "modelo": "Skyline GT-R",
+        "escala": "1:32",
+        "precio": 80,
+        "stock": 15,
+        "img":"NissanSkyline.jpg"
+    },
+    {   
+        "id": 2,
+        "marca": "Corvette",
+        "modelo": "C7 Grand Sport",
+        "escala": "1:24",
+        "precio": 100,
+        "stock": 12,
+        "img":"CorvetteC7.jpg"
+    },
+    {   
+        "id": 3,
+        "marca": "Dodge",
+        "modelo": "Challenger SRT Hellcat",
+        "escala": "1:24",
+        "precio": 100,
+        "stock": 11,
+        "img":"DodgeChallenger.jpg"
+    },
+    {   
+        "id": 4,
+        "marca": "Lamborghini",
+        "modelo": "Huracan Performante",
+        "escala": "1:18",
+        "precio": 200,
+        "stock": 8,
+        "img":"LamborghiniPerformante.jpg"
+    },
+    {   
+        "id": 5,
+        "marca": "Lamborghini Centenario",
+        "modelo": "LFA",
+        "escala": "1:18",
+        "precio": 230,
+        "stock": 20,
+        "img":"LamborghiniCentenario.jpg"
+    },
+    {   
+        "id": 6,
+        "marca": "Porsche",
+        "modelo": "GT2 RS",
+        "escala": "1:12",
+        "precio": 350,
+        "stock": 9,
+        "img":"PorscheGT2Rs.jpg"
+    },
+    {   
+        "id": 7,
+        "marca": "Koenigsegg",
+        "modelo": "Agera RS",
+        "escala": "1:12",
+        "precio": 400,
+        "stock": 4,
+        "img":"KoenigseggAgeraRs.jpg"
+    }
+
+]

@@ -12,26 +12,27 @@
 <body class="body">
     <div class="containerBody">
         <header class="header">
-            <div>
-                <h1 class="tittle">AUTOarte</h1> 
-              <h2>Modelos a escala de precision</h2>
-            </div>
-            <section class="seccionCarrito"> 
-                <div class="aaLogo">             
-                    <img src="./Style/img/aa_logo.svg" alt="Logo">      
-                </div>  
-                <div class="totalCarritoLogo">
-                    <button type="button" id="vaciarCarrito" class="btn btn-danger">
-                        Vaciar Carrito
-                    </button>
-                    <div id="carrito">
-                       
-                    </div>
-                    <button type="button"  class="btn btn-primary botonCarritoLogo" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <img class="carritoLogo" src="./Style/img/carrito.png" alt="">
-                    </button>
-                </div>
-            </section> 
+          <div class="texts">
+              <h1 class="tittle">AUTOarte</h1> 
+            <h2>Modelos a escala de precision</h2> 
+            <p class="cotizacion"></p>
+          </div>
+          <section class="seccionCarrito"> 
+              <div class="aaLogo">             
+                  <img src="./Style/img/aa_logo.svg" alt="Logo">      
+              </div>  
+              <div class="totalCarritoLogo">
+                  <button type="button" id="vaciarCarrito" class="btn btn-danger">
+                      Vaciar Carrito
+                  </button>
+                  <div id="carrito">
+                      
+                  </div>
+                  <button type="button"  class="btn btn-primary botonCarritoLogo" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      <img class="carritoLogo" src="./Style/img/carrito.png" alt="">
+                  </button>
+              </div>
+          </section> 
             
         </header>
         <section id="productSection">
@@ -45,10 +46,11 @@
                   <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  en proceso
+                <div class="modal-body flex-row">
+                
                 </div>
                 <div class="modal-footer">
+                  <div class="modal-total"></div>
                   <button type="button" class="btn btn-danger close" data-bs-dismiss="modal">Cerrar</button>
                   <button type="button" class="btn btn-success">Continuar con el pago</button>
                 </div>

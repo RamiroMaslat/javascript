@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&family=Gloria+Hallelujah&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
@@ -9,7 +10,7 @@
 }
 
 p {
-    margin: 0px;
+    /* margin: 0px; */
 }
 
 .body {
@@ -34,9 +35,15 @@ p {
     align-items: flex-start;
     justify-content: space-between;
 }
+.texts {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
 
 .header h1 {
-    
+
     font-weight: 100;
     margin: 0px;
     color: #f0ffff;
@@ -46,25 +53,27 @@ p {
     font-size: 3rem;
     text-decoration: underline 0.09em;
 }
-.header h2{
-    color:azure;
+
+.header h2 {
+    color: azure;
     font-size: 0.87rem;
     font-family: 'Gloria Hallelujah', serif;
     margin: 0px;
-    
-    
+
+
 }
 
 .header section {
     display: flex;
-    flex-direction: column;
     color: azure;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: nowrap;
     height: 40%;
     width: 40%;
-    align-items: flex-end;
     gap: 0.8em;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: center;
 }
 
 .aaLogo {
@@ -82,7 +91,7 @@ p {
     padding: 0px;
     background-color: #062452;
     border: none;
-   
+
 
 }
 
@@ -103,17 +112,40 @@ p {
 }
 
 
-#vaciarCarrito:hover{
-    background-color: red;   
+#vaciarCarrito:hover {
+    background-color: red;
     transition: all 0.5s;
     margin: 7px;
 
 }
+
 .carrito {
     margin: 0px;
     width: 70px;
     height: 100%;
     display: block;
+}
+
+.cotizacion {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cotizacion h4 {
+    color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.80rem;
+    text-decoration: underline;
+    margin: 0px;
+    margin-top: 1.5rem;
+    
+}
+.cotizacion p {
+    color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.70rem;
+    margin: 0px;
 }
 
 #productSection {
@@ -127,7 +159,8 @@ p {
     text-align: center;
 
 }
-.card-body{
+
+.card-body {
     gap: 19px;
 }
 
@@ -147,11 +180,20 @@ p {
     background-color: rgb(6, 36, 82);
     border: 0px;
 }
-.close{
+
+.close {
     background-color: red;
     color: black;
     font-weight: 600;
 }
+
+.modal-total {
+    color: #062452;
+    font-weight: 700;
+}
+
+
+
 .PieDePagina {
     background-color: rgb(6, 36, 82);
     height: 150px;
@@ -167,6 +209,7 @@ p {
     height: 50px;
     margin: 15px;
 }
+
 .PieDePagina .PieDePagina__LogoRedSocial:hover {
     transition: all 0.2s;
     width: 60px;
@@ -174,4 +217,4 @@ p {
     border: 2px solid orangered;
     border-radius: 30px;
 
-  }
+}
