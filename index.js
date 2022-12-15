@@ -14,17 +14,17 @@ class Vehiculos {
 const cotizacion = document.querySelector('.cotizacion')
 
 
-const cargarCotizaciones = () =>{
+const cargarCotizaciones = () => {
     fetch('https://criptoya.com/api/dolar')
-    .then(Response => Response.json())
-    .then(({oficial, blue}) =>{
-    cotizacion.innerHTML = `
-    <h4>Cotización del Dólar</h4>
-    <p>Dólar Oficial: $${oficial}</p>
-    <p>Dólar Blue: $${blue}</p>
-    `     
-    })         
-     
+        .then(Response => Response.json())
+        .then(({ oficial, blue }) => {
+            cotizacion.innerHTML = `
+        <h4>Cotización del Dólar</h4>
+        <p>Dólar Oficial: $${oficial}</p>
+        <p>Dólar Blue: $${blue}</p>
+        `
+        })
+
 }
 cargarCotizaciones();
 
@@ -53,7 +53,7 @@ const productos = [producto0, producto1, producto2, producto3, producto4, produc
 
 const seccionProductos = document.getElementById('productSection')
 
-const creandoCartas = () =>{
+const creandoCartas = () => {
     productos.forEach(product => {
         seccionProductos.innerHTML +=
             `  
@@ -81,7 +81,31 @@ const visualizarCarrito = document.querySelector('.botonCarritoLogo')
 const botonVaciarCarrito = document.querySelector('#vaciarCarrito')
 const modalTotal = document.querySelector('.modal-total')
 
+let totalEnPesos = 0
 
+const calcularValorDolarPeso = () => {
+    fetch('https://criptoya.com/api/dolar')
+        .then(Response => Response.json())
+        .then(({ oficial, blue }) => {
+
+            totalCarrito.innerHTML = ''
+            let valorFinalDolarBlue = valorFinal * blue
+            totalCarrito.innerHTML +=
+                `
+        <p>Total Dolar: $${valorFinal}</p>  
+        <p>Total en Pesos: $${valorFinalDolarBlue}</p>
+        `;
+            modalTotal.innerHTML = ` 
+        <p>Total Dolar: $${valorFinal}</p>       
+        <p>Total en Pesos: $${valorFinalDolarBlue}</p>    
+        `;
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        })
+
+
+}
+
+calcularValorDolarPeso();
 
 
 
@@ -95,6 +119,7 @@ sumaStorage = () => {
     totalCarrito.innerHTML =
         `
         <p>Total: $${sumaCompra}</p>
+        
     `;
     valorFinal = sumaCompra
 };
@@ -105,6 +130,7 @@ let totalCompra = sumaStorage();
 totalCarrito.innerHTML =
     `
 <p>Total: $${valorFinal}</p>
+<p>Total en Pesos: $${totalEnPesos}</p>
 `;
 
 
@@ -113,20 +139,21 @@ agregarCarrito.forEach(boton => {
         const stock = document.querySelector('.stock')
         let productoSeleccionado = productos.find(prod => prod.id === parseInt(boton.id))
         let productoCarrito = { ...productoSeleccionado, cantidad: 1 }
-        let indexCarrito = carrito.findIndex(prod => prod.id === productoCarrito.id)      
+        let indexCarrito = carrito.findIndex(prod => prod.id === productoCarrito.id)
 
         if (indexCarrito === -1) {
-            carrito.push(productoCarrito);  
+            carrito.push(productoCarrito);
 
         } else {
-            carrito[indexCarrito].cantidad++           
-        }        
-        
+            carrito[indexCarrito].cantidad++
+        }
+
         sumaStorage();
-        productoSeleccionado.stock-- 
+        productoSeleccionado.stock--
         stock.innerHTML = `
-        <p class="card-text stock">Stock: ${productoSeleccionado.stock}</p>
-        `; 
+        <p id="product${productoSeleccionado.id}" class="card-text stock">Stock: ${productoSeleccionado.stock}</p>
+        `;
+        calcularValorDolarPeso();
 
         Toastify({
             text: `Producto ${productoSeleccionado.marca} ${productoSeleccionado.modelo} ${productoSeleccionado.escala} agregado al carrito`,
@@ -135,18 +162,18 @@ agregarCarrito.forEach(boton => {
                 background: "linear-gradient(to right, #4b4949, #062452 , #4b4949)"
             }
         }).showToast();
-        
+
     }
 })
 
 const productoEnCarrito = () => {
 
-    if(carrito.length >= 1){
-    carritoContenedor.innerHTML = "";
+    if (carrito.length >= 1) {
+        carritoContenedor.innerHTML = "";
 
-    carrito.forEach(product => {
-        carritoContenedor.innerHTML +=
-            `
+        carrito.forEach(product => {
+            carritoContenedor.innerHTML +=
+                `
         <div class="card cardCarrito" style="width: 28rem;">            
             <div class="card-body">
                 <img src="${product.imagen}" class="card-img-top">
@@ -158,17 +185,17 @@ const productoEnCarrito = () => {
             </div>
         </div> 
         `
-    });
-    modalTotal.innerHTML = `
-    <p>Total: $${valorFinal}
-    `;
-    }else{               
-    carritoContenedor.innerHTML = `
+        });
+
+        calcularValorDolarPeso()
+
+    } else {
+        carritoContenedor.innerHTML = `
         No tienes productos Seleccionados!
-        `   
-    modalTotal.innerHTML = `
-    <p>Total: $${valorFinal}
-    `;
+        `
+        modalTotal.innerHTML = `
+        <p>Total: $${valorFinal}</p>
+        `;
     }
 
 }
@@ -181,26 +208,28 @@ const eliminandoProducto = () => {
     eliminarProducto.forEach(btn => {
         btn.onclick = () => {
             const productoAEliminar = carrito.find(e => e.id === parseInt(btn.id))
-            const indice = carrito.indexOf(productoAEliminar) 
-            if(productoAEliminar.cantidad > 1){
-                productoAEliminar.cantidad --
+            const indice = carrito.indexOf(productoAEliminar)
+            if (productoAEliminar.cantidad > 1) {
+                productoAEliminar.cantidad--
                 valorFinal = valorFinal -= productoAEliminar.precio
                 totalCarrito.innerHTML =
                     `
                 <p>Total: $${valorFinal}</p>
                 `;
-            }else{
+                calcularValorDolarPeso();
+            } else {
                 carrito.splice(indice, 1)
                 valorFinal = valorFinal -= productoAEliminar.precio
                 totalCarrito.innerHTML =
                     `
                 <p>Total: $${valorFinal}</p>
                 `;
-            }         
+                calcularValorDolarPeso();
+            }
             productoEnCarrito();
-            eliminandoProducto(); 
-            localStorage.setItem('carrito', JSON.stringify(carrito))                      
-        }        
+            eliminandoProducto();
+            localStorage.setItem('carrito', JSON.stringify(carrito))
+        }
     })
 
 }
@@ -209,20 +238,26 @@ visualizarCarrito.onclick = () => {
     totalCarrito.innerHTML += ``;
     productoEnCarrito();
     eliminandoProducto();
+    calcularValorDolarPeso();
+
 
 };
 
 const vaciarCarrito = () => {
     carrito.length = [];
     valorFinal = 0;
-    totalCarrito.innerHTML =
-        `
-    <p>Total: $${valorFinal}</p>
+
+    totalCarrito.innerHTML = `
+    <p>Total: $${valorFinal}</p>    
     `;
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+
+
     modalTotal.innerHTML = `
-    <p>Total Dolar: $${valorFinal}</p>    
+    <p>Total Dolar: $${valorFinal}</p>
+    <p>Total en Pesos: $${totalEnPesos}</p>    
     `;
+    calcularValorDolarPeso();
+    localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
 
@@ -230,6 +265,5 @@ const vaciarCarrito = () => {
 botonVaciarCarrito.onclick = () => {
     vaciarCarrito();
 }
-
 
 

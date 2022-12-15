@@ -10,7 +10,7 @@
 }
 
 p {
-    /* margin: 0px; */
+    margin: 0px;
 }
 
 .body {
@@ -119,13 +119,12 @@ p {
 
 }
 
-.carrito {
-    margin: 0px;
-    width: 70px;
-    height: 100%;
-    display: block;
+#carrito {    
+    display: flex;
+    gap: 0.8rem;
 }
 
+    
 .cotizacion {
     display: flex;
     flex-direction: column;
